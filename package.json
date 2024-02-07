@@ -13,7 +13,11 @@
     "vite": "^4.5.2"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "nodemailer": "^6.9.9",
     "octokit": "^3.1.2"
   }
 }
