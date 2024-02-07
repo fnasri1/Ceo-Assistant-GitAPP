@@ -1,13 +1,11 @@
 # Sample GitHub App
 
-This sample app showcases how webhooks can be used with a GitHub App's installation token to create a bot that responds to issues. Code uses [octokit.js](https://github.com/octokit/octokit.js).
+This app fetch the merged pull requests between a certain two dates that we choose and send an email explaining the changes and their impact to someone who doesn't have a coding experience ( a company CEO for exemple who wants to have visibility on the company projects). Code uses [octokit.js](https://github.com/octokit/octokit.js).
 
 ## Requirements
 
 - Node.js 12 or higher
-- A GitHub App subscribed to **Pull Request** events and with the following permissions:
-  - Pull requests: Read & write
-  - Metadata: Read-only
+- A GitHub App subscribed that have all the permission and subscription .
 - (For local development) A tunnel to expose your local server to the internet (e.g. [smee](https://smee.io/), [ngrok](https://ngrok.com/) or [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/))
 - Your GitHub App Webhook must be configured to receive events at a URL that is accessible from the internet.
 
@@ -26,10 +24,11 @@ This sample app showcases how webhooks can be used with a GitHub App's installat
 With your server running, you can now create a pull request on any repository that
 your app can access. GitHub will emit a `pull_request.opened` event and will deliver
 the corresponding Webhook [payload](https://docs.github.com/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) to your server.
-
+this webhook will serve as a trigger to the code to get informations about the repository so we don't need manual authentification for each repository.
 The server in this example listens for `pull_request.opened` events and acts on
-them by creating a comment on the pull request, with the message in `message.md`,
-using the [octokit.js rest methods](https://github.com/octokit/octokit.js#octokitrest-endpoint-methods).
+them by fetching the informations about the merged full requests between certain two dates.
+These changes will be sent to ChatGPT so it can analyse the changes and return and email explaining 
+the impact of the changes to the project for the CEO.
 
 ## Security considerations
 
