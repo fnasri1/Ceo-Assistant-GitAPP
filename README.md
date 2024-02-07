@@ -5,14 +5,14 @@ This app fetch the merged pull requests between a certain two dates that we choo
 ## Requirements
 
 - Node.js 12 or higher
-- A GitHub App subscribed that have all the permission and subscription .
+- A GitHub App  that have all the permission and subscription . You can follow the [documentation](https://docs.github.com/en/apps/creating-github-apps/writing-code-for-a-github-app/quickstart)
 - (For local development) A tunnel to expose your local server to the internet (e.g. [smee](https://smee.io/), [ngrok](https://ngrok.com/) or [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/))
 - Your GitHub App Webhook must be configured to receive events at a URL that is accessible from the internet.
 
 ## Setup
 
 1. Clone this repository.
-2. Create a `.env` file similar to `.env.example` and set actual values. If you are using GitHub Enterprise Server, also include a `ENTERPRISE_HOSTNAME` variable and set the value to the name of your GitHub Enterprise Server instance.
+2. Create a `.env` file similar to `.env.sample` and set actual values. If you are using GitHub Enterprise Server, also include a `ENTERPRISE_HOSTNAME` variable and set the value to the name of your GitHub Enterprise Server instance.
 3. Install dependencies with `npm install`.
 4. Start the server with `npm run server`.
 5. Ensure your server is reachable from the internet.
